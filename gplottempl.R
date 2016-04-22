@@ -33,7 +33,7 @@ myplot2 = function(dataset, x_string, y_string, color_string, error_string) {
     geom_errorbar(aes(ymin=ydata-error, ymax=ydata+error), colour="grey", width=.1, position=pd) +
     geom_line(position=pd) +
     # geom_point(position=pd, size=3) +
-    geom_point(aes_string(shape=color_string, fill=color_string), position=pd, size=5) +  # add a scatterplot; constant size, shape/fill depends on lesion
+    geom_point(aes_string(shape=color_string, fill=color_string), position=pd, size=3) +  # add a scatterplot; constant size, shape/fill depends on lesion
     scale_x_continuous(X_LABEL) + # have tick marks for each session
     scale_y_continuous(Y_LABEL) + # have tick marks for each session
     scale_shape_manual(values=SERIES_MARKERS)  +# explicitly have sham=fillable triangle, ACCX=fillable circle
