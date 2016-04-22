@@ -39,7 +39,7 @@ myplot2 = function(dataset, x_string, y_string, color_string, error_string) {
     scale_shape_manual(values=SERIES_MARKERS)  +# explicitly have sham=fillable triangle, ACCX=fillable circle
     scale_color_manual(values=SERIES_COLORS)  +# explicitly have sham=fillable triangle, ACCX=fillable circle
     scale_fill_manual(values=SERIES_FILL_COLORS) + # explicitly have sham=white, ACCX=black
-    theme_bw()+  # make the theme black-and-white rather than grey (do this before font changes, or it overrides them)
+    # theme_bw()+  # make the theme black-and-white rather than grey (do this before font changes, or it overrides them)
     ggtitle(Titl)+
     theme(
       plot.title = element_text(face=MYPLOT_PROPS['plot.title', 'face'], size=MYPLOT_PROPS['plot.title', 'size']), # use theme_get() to see available options
