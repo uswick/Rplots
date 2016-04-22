@@ -10,7 +10,7 @@ SERIES_COLORS=c("black","black")
 SERIES_FILL_COLORS=c("white","black")
 SERIES_MARKERS=c(24,21)
 LEGEND_POS=c(0.2,0.8)
-CHART_PROPS=c()  #title font sz,
+CHART_PROPS=list()  #title font sz,
 
 
 ############### DATA ###############
