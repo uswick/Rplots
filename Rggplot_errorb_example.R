@@ -5,15 +5,17 @@ source("/Users/udayangawickramasinghe/Install/RPlots/gplottempl.R")
 
 
 ############### PARAMS##############
-Titl="Scaling Performance for Lullesh on `Cutter`"
+Titl="Scaling Performance for Lulesh on `Cutter`"
 X_LABEL="cores (count)"
 Y_LABEL="time (s)"
-SERIES_COLORS=c("black","black")
-SERIES_FILL_COLORS=c("white","black")
-SERIES_MARKERS=c(24,21)
-LEGEND_POS=c(0.2,0.8)
-CHART_PROPS=list()  #title font sz,
+# SERIES_COLORS=c("black","black")
+# SERIES_FILL_COLORS=c("white","black")
+# SERIES_MARKERS=c(24,21)
+# LEGEND_POS=c(0.2,0.8)
 
+MYPLOT_PROPS['plot.title', 'size']=12
+# MYPLOT_PROPS['axis.title.y', 'size']=18
+MYPLOT_PROPS['legend.title', 'active']=TRUE
 
 ############### DATA ###############
 tg <- ToothGrowth
@@ -30,6 +32,5 @@ dataset["len"]
 myplot2(dataset, "dose", "len", "supp", "se")
 #confidence interval 95%
 #myplot2(dataset, "dose", "len", "supp", "ci")
-
 
 remove("MYPLOT_CONSTANTS_DEF")

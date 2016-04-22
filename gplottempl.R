@@ -4,10 +4,22 @@ myplot2 = function(dataset, x_string, y_string, color_string, error_string) {
   # bars won't be dodged!
   try(
     if(!exists("MYPLOT_CONSTANTS_DEF")){ 
-      warning("Fatal Error! Constant file consts.R not available!")
+      stop("Fatal Error! Constant file consts.R not available!")
       return()
     }
   )
+  
+  if(MYPLOT_PROPS['legend.key', 'active']){
+    lg_key = element_rect()
+  }else{
+    lg_key = element_blank()
+  }
+  
+  if(MYPLOT_PROPS['legend.title', 'active']){
+    lg_title = element_text()
+  }else{
+    lg_title = element_blank()
+  }
   
   pd <- position_dodge(0.1) # move them .05 to the left and right
   ydata <- dataset[y_string]
@@ -30,16 +42,16 @@ myplot2 = function(dataset, x_string, y_string, color_string, error_string) {
     theme_bw()+  # make the theme black-and-white rather than grey (do this before font changes, or it overrides them)
     ggtitle(Titl)+
     theme(
-      plot.title = element_text(face="bold", size=14), # use theme_get() to see available options
-      axis.title.x = element_text(face="bold", size=12),
-      axis.title.y = element_text(face="bold", size=12, angle=90),
+      plot.title = element_text(face=MYPLOT_PROPS['plot.title', 'face'], size=MYPLOT_PROPS['plot.title', 'size']), # use theme_get() to see available options
+      axis.title.x = element_text(face=MYPLOT_PROPS['axis.title.x', 'face'], size=MYPLOT_PROPS['axis.title.x', 'size']),
+      axis.title.y = element_text(face=MYPLOT_PROPS['axis.title.y', 'face'], size=MYPLOT_PROPS['axis.title.y', 'size'], angle=MYPLOT_PROPS['axis.title.y', 'angle']),
       # panel.grid.major = element_blank(), # switch off major gridlines
       # panel.grid.minor = element_blank(), # switch off minor gridlines
       legend.position = LEGEND_POS, # manually position the legend (numbers being from 0,0 at bottom left of whole plot to 1,1 at top right)
-      # legend.title = element_blank(), # switch off the legend title
+      legend.title = lg_title, # switch off the legend title
       legend.text = element_text(size=8),
       legend.key.size = unit(1.1, "lines"),
-      legend.key = element_blank() # switch off the rectangle around symbols in the legend
+      legend.key = lg_key # switch off the rectangle around symbols in the legend
     )
   
 }
@@ -49,4 +61,8 @@ myplot1 = function(dataset, x_string, y_string, color_string) {
   # Black error bars - notice the mapping of 'group=supp' -- without it, the error
   # bars won't be dodged!
   myplot2(dataset, x_string, y_string, color_string, NULL)
+}
+
+myplot_cleanup = function(){
+  remove("MYPLOT_CONSTANTS_DEF")
 }
