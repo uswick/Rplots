@@ -1,6 +1,8 @@
 library(ggplot2)
+source("/Users/udayangawickramasinghe/Install/RPlots/consts.R")
 source("/Users/udayangawickramasinghe/Install/RPlots/util.R")
 source("/Users/udayangawickramasinghe/Install/RPlots/gplottempl.R")
+
 
 ############### PARAMS##############
 Titl="Scaling Performance for Lullesh on `Cutter`"
@@ -30,3 +32,4 @@ myplot2(dataset, "dose", "len", "supp", "se")
 #myplot2(dataset, "dose", "len", "supp", "ci")
 
 
+remove("MYPLOT_CONSTANTS_DEF")

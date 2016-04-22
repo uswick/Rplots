@@ -2,6 +2,13 @@ myplot2 = function(dataset, x_string, y_string, color_string, error_string) {
   # assign(sup_var, dataset.)
   # Black error bars - notice the mapping of 'group=supp' -- without it, the error
   # bars won't be dodged!
+  try(
+    if(!exists("MYPLOT_CONSTANTS_DEF")){ 
+      warning("Fatal Error! Constant file consts.R not available!")
+      return()
+    }
+  )
+  
   pd <- position_dodge(0.1) # move them .05 to the left and right
   ydata <- dataset[y_string]
   if(!is.null(error_string)){
@@ -10,7 +17,6 @@ myplot2 = function(dataset, x_string, y_string, color_string, error_string) {
     error <- c(rep(0, nrow(dataset)))
   }
     
-  
   ggplot(dataset, aes_string(x=x_string, y=y_string, colour=color_string, group=color_string)) +
     geom_errorbar(aes(ymin=ydata-error, ymax=ydata+error), colour="grey", width=.1, position=pd) +
     geom_line(position=pd) +
