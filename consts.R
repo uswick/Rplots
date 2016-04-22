@@ -1,6 +1,6 @@
 MYPLOT_CONSTANTS_DEF=TRUE
 ############### DEFAULT PARAMS##############
-Titl="Default Title"
+Titl=""
 X_LABEL="x label"
 Y_LABEL="y label"
 SERIES_COLORS=c("black","black")
@@ -12,6 +12,7 @@ LEGEND_POS=c(0.2,0.8)
 MYPLOT_PROPS <- data.frame(active=integer(), 
                       face=character(),     
                       size=integer(),
+                      units=double(),
                       angle=integer(),
                       text=character(),
                       key=character(), stringsAsFactors = FALSE)
@@ -33,6 +34,12 @@ MYPLOT_PROPS['axis.title.y', 'angle']=90
 
 MYPLOT_PROPS['legend.key', 'active']=FALSE
 MYPLOT_PROPS['legend.title', 'active']=FALSE
+
+MYPLOT_PROPS['legend.text', 'size']=8
+MYPLOT_PROPS['legend.key', 'units']=1.1
+
+
+MYPLOT_PROPS['geom_point', 'units']=3
 
 
 MYPLOT_PROPS

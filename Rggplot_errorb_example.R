@@ -13,7 +13,7 @@ Y_LABEL="time (s)"
 # SERIES_MARKERS=c(24,21)
 # LEGEND_POS=c(0.2,0.8)
 
-MYPLOT_PROPS['plot.title', 'size']=12
+MYPLOT_PROPS['plot.title', 'size']=8
 # MYPLOT_PROPS['axis.title.y', 'size']=18
 MYPLOT_PROPS['legend.title', 'active']=TRUE
 
