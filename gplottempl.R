@@ -35,7 +35,8 @@ myplot2 = function(dataset, x_string, y_string, color_string, error_string) {
     # geom_point(position=pd, size=3) +
     geom_point(aes_string(shape=color_string, fill=color_string), position=pd, size=MYPLOT_PROPS['geom_point', 'units']) +  # add a scatterplot; constant size, shape/fill depends on lesion
     scale_x_continuous(X_LABEL) + # have tick marks for each session
-    scale_y_continuous(Y_LABEL) + # have tick marks for each session
+    # scale_y_continuous(Y_LABEL) + # have tick marks for each session
+    scale_y_continuous(Y_LABEL, limits=c(0,400)) + # have tick marks for each session
     scale_shape_manual(values=SERIES_MARKERS)  +# explicitly have sham=fillable triangle, ACCX=fillable circle
     scale_color_manual(values=SERIES_COLORS)  +# explicitly have sham=fillable triangle, ACCX=fillable circle
     scale_fill_manual(values=SERIES_FILL_COLORS) + # explicitly have sham=white, ACCX=black
