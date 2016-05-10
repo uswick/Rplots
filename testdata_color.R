@@ -40,11 +40,65 @@ dataset3
 dataset4 <- dataset[dataset$overhead == 10 & dataset$distrib == 'random_uniform',]
 dataset4
 
+dataset5 <- dataset[dataset$overhead == 10 & dataset$distrib == 'scaled_2.5x',]
+dataset5
+
+##### overhead 20
+dataset1b <- dataset[dataset$overhead == 20 & dataset$distrib == 'gaussian',]
+dataset1b
+
+dataset2b <- dataset[dataset$overhead == 20 & dataset$distrib == 'uniform',]
+dataset2b
+
+dataset3b <- dataset[dataset$overhead == 20 & dataset$distrib == 'exponen',]
+dataset3b
+
+dataset4b <- dataset[dataset$overhead == 20 & dataset$distrib == 'random_uniform',]
+dataset4b
+
+dataset5b <- dataset[dataset$overhead == 20 & dataset$distrib == 'scaled_2.5x',]
+dataset5b
+
+##### overhead 40
+dataset1c <- dataset[dataset$overhead == 40 & dataset$distrib == 'gaussian',]
+dataset1c
+
+dataset2c <- dataset[dataset$overhead == 40 & dataset$distrib == 'uniform',]
+dataset2c
+
+dataset3c <- dataset[dataset$overhead == 40 & dataset$distrib == 'exponen',]
+dataset3c
+
+dataset4c <- dataset[dataset$overhead == 40 & dataset$distrib == 'random_uniform',]
+dataset4c
+
+dataset5c <- dataset[dataset$overhead == 40 & dataset$distrib == 'scaled_2.5x',]
+dataset5c
+
+##### overhead 80
+dataset1d <- dataset[dataset$overhead == 80 & dataset$distrib == 'gaussian',]
+dataset1d
+
+dataset2d <- dataset[dataset$overhead == 80 & dataset$distrib == 'uniform',]
+dataset2d
+
+dataset3d <- dataset[dataset$overhead == 80 & dataset$distrib == 'exponen',]
+dataset3d
+
+dataset4d <- dataset[dataset$overhead == 80 & dataset$distrib == 'random_uniform',]
+dataset4d
+
+dataset5d <- dataset[dataset$overhead == 80 & dataset$distrib == 'scaled_2.5x',]
+dataset5d
+
+
+
 p1 <- myplot2(dataset1, "cores", "time", "mode.1", "ci")
 p2 <- myplot2(dataset2, "cores", "time", "mode.1", "ci")
 p3 <- myplot2(dataset3, "cores", "time", "mode.1", "ci")
 p4 <- myplot2(dataset4, "cores", "time", "mode.1", "ci")
+p5 <- myplot2(dataset5, "cores", "time", "mode.1", "ci")
 
 
 # multiplot(p1)
-multiplot(p1, p2, p3, p4, cols=2)
+multiplot(p1, p2, p3, p4, p5, cols=3)

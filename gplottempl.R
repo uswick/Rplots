@@ -1,4 +1,4 @@
-myplot2 = function(dataset, x_string, y_string, color_string, error_string) {
+myplot2 = function(dataset, x_string, y_string, color_string, error_string, title="") {
   # assign(sup_var, dataset.)
   # Black error bars - notice the mapping of 'group=supp' -- without it, the error
   # bars won't be dodged!
@@ -10,15 +10,33 @@ myplot2 = function(dataset, x_string, y_string, color_string, error_string) {
   )
   
   if(MYPLOT_PROPS['legend.key', 'active']){
-    lg_key = element_rect()
+    loc.lg_key = element_rect()
   }else{
-    lg_key = element_blank()
+    loc.lg_key = element_blank()
   }
   
   if(MYPLOT_PROPS['legend.title', 'active']){
-    lg_title = element_text()
+    loc.lg_title = element_text()
   }else{
-    lg_title = element_blank()
+    loc.lg_title = element_blank()
+  }
+  
+  if(MYPLOT_PROPS['plot.title.global', 'active']){
+    loc.plt_title = Titl
+  }else{
+    loc.plt_title = title
+  }
+  
+  if(MYPLOT_PROPS['axis.text', 'active']){
+    loc.ax_txt =  element_text(face=MYPLOT_PROPS['axis.text', 'face'], size=MYPLOT_PROPS['axis.text', 'size'])
+  }else{
+    loc.ax_txt = element_text()
+  }
+  
+  if(MYPLOT_PROPS['axis.range.y', 'active']){
+    loc.ylimits = c(MYPLOT_PROPS['axis.range.y.limit', 'a'], MYPLOT_PROPS['axis.range.y.limit', 'b'])  
+  }else{
+    loc.ylimits = NULL
   }
   
   pd <- position_dodge(0.1) # move them .05 to the left and right
@@ -36,33 +54,34 @@ myplot2 = function(dataset, x_string, y_string, color_string, error_string) {
     geom_point(aes_string(shape=color_string, fill=color_string), position=pd, size=MYPLOT_PROPS['geom_point', 'units']) +  # add a scatterplot; constant size, shape/fill depends on lesion
     scale_x_continuous(X_LABEL) + # have tick marks for each session
     # scale_y_continuous(Y_LABEL) + # have tick marks for each session
-    scale_y_continuous(Y_LABEL, limits=c(0,400)) + # have tick marks for each session
+    scale_y_continuous(Y_LABEL, limits = loc.ylimits ) + # have tick marks for each session
     scale_shape_manual(values=SERIES_MARKERS)  +# explicitly have sham=fillable triangle, ACCX=fillable circle
     scale_color_manual(values=SERIES_COLORS)  +# explicitly have sham=fillable triangle, ACCX=fillable circle
     scale_fill_manual(values=SERIES_FILL_COLORS) + # explicitly have sham=white, ACCX=black
     # theme_bw()+  # make the theme black-and-white rather than grey (do this before font changes, or it overrides them)
-    ggtitle(Titl)+
+    ggtitle(loc.plt_title)+
     theme(
       plot.title = element_text(face=MYPLOT_PROPS['plot.title', 'face'], size=MYPLOT_PROPS['plot.title', 'size']), # use theme_get() to see available options
       axis.title.x = element_text(face=MYPLOT_PROPS['axis.title.x', 'face'], size=MYPLOT_PROPS['axis.title.x', 'size']),
       axis.title.y = element_text(face=MYPLOT_PROPS['axis.title.y', 'face'], size=MYPLOT_PROPS['axis.title.y', 'size'], angle=MYPLOT_PROPS['axis.title.y', 'angle']),
+      axis.text = loc.ax_txt, 
       # panel.grid.major = element_blank(), # switch off major gridlines
       # panel.grid.minor = element_blank(), # switch off minor gridlines
       legend.position = LEGEND_POS, # manually position the legend (numbers being from 0,0 at bottom left of whole plot to 1,1 at top right)
-      legend.title = lg_title, # switch off the legend title
+      legend.title = loc.lg_title, # switch off the legend title
       legend.text = element_text(size=MYPLOT_PROPS['legend.text', 'size']),
       legend.key.size = unit(MYPLOT_PROPS['legend.key', 'units'], "lines"),
-      legend.key = lg_key # switch off the rectangle around symbols in the legend
+      legend.key = loc.lg_key # switch off the rectangle around symbols in the legend
     )
   
   return(p1)
 }
 
-myplot1 = function(dataset, x_string, y_string, color_string) {
+myplot1 = function(dataset, x_string, y_string, color_string, title= "") {
   # assign(sup_var, dataset.)
   # Black error bars - notice the mapping of 'group=supp' -- without it, the error
   # bars won't be dodged!
-  myplot2(dataset, x_string, y_string, color_string, NULL)
+  myplot2(dataset, x_string, y_string, color_string, NULL, title)
 }
 
 myplot_cleanup = function(){

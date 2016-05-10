@@ -17,7 +17,7 @@ MYPLOT_PROPS <- data.frame(active=integer(),
                       text=character(),
                       key=character(), stringsAsFactors = FALSE)
 
-MYPLOT_PROPS['plot.title', 'active']=TRUE
+MYPLOT_PROPS['plot.title.global', 'active']=TRUE
 MYPLOT_PROPS['plot.title', 'size']=14
 MYPLOT_PROPS['plot.title', 'face']="bold"
 MYPLOT_PROPS['plot.title', 'angle']=90
@@ -38,8 +38,15 @@ MYPLOT_PROPS['legend.title', 'active']=FALSE
 MYPLOT_PROPS['legend.text', 'size']=8
 MYPLOT_PROPS['legend.key', 'units']=1.1
 
-
 MYPLOT_PROPS['geom_point', 'units']=3
+
+MYPLOT_PROPS['axis.text', 'active']=FALSE
+MYPLOT_PROPS['axis.text', 'face']="bold"
+MYPLOT_PROPS['axis.text', 'size']=4
+
+MYPLOT_PROPS['axis.range.y', 'active']=FALSE
+MYPLOT_PROPS['axis.range.y.limit', 'a']=0
+MYPLOT_PROPS['axis.range.y.limit', 'b']=400
 
 
 MYPLOT_PROPS
