@@ -1,3 +1,7 @@
+# simple plotting framework for R using ggplot2
+# helper functions (extracted from R Cookbook - http://www.cookbook-r.com/)
+# Author : Udayanga Wickramasinghe [uswickra@umail.iu.edu]
+
 summarySE <- function(data=NULL, measurevar, groupvars=NULL, na.rm=FALSE,
                       conf.interval=.95, .drop=TRUE) {
   library(plyr)

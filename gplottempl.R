@@ -1,3 +1,6 @@
+# simple plotting framework for R using ggplot2
+# Author : Udayanga Wickramasinghe [uswickra@umail.iu.edu]
+
 myplot2 = function(dataset, x_string, y_string, color_string, error_string, title="") {
   # assign(sup_var, dataset.)
   # Black error bars - notice the mapping of 'group=supp' -- without it, the error

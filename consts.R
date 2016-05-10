@@ -1,3 +1,7 @@
+# simple plotting framework for R using ggplot2
+# configuration paramters
+# Author : Udayanga Wickramasinghe [uswickra@umail.iu.edu]
+
 MYPLOT_CONSTANTS_DEF=TRUE
 ############### DEFAULT PARAMS##############
 Titl=""
