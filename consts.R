@@ -52,5 +52,10 @@ MYPLOT_PROPS['axis.range.y', 'active']=FALSE
 MYPLOT_PROPS['axis.range.y.limit', 'a']=0
 MYPLOT_PROPS['axis.range.y.limit', 'b']=400
 
+MYPLOT_PROPS['axis.range.x', 'active']=FALSE
+MYPLOT_PROPS['axis.range.x.break', 'a']=0
+MYPLOT_PROPS['axis.range.x.break', 'b']=400
+MYPLOT_PROPS['axis.range.x.break', 'step']=10
+
 
 MYPLOT_PROPS

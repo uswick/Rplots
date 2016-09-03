@@ -38,5 +38,33 @@ summarySE <- function(data=NULL, measurevar, groupvars=NULL, na.rm=FALSE,
   return(datac)
 }
 
+MHmakeRandomString <- function(n=1, lenght=12)
+{
+  randomString <- c(1:n)                  # initialize vector
+  for (i in 1:n)
+  {
+    randomString[i] <- paste(sample(c(0:9, letters, LETTERS),
+                                    lenght, replace=TRUE),
+                             collapse="")
+  }
+  return(randomString)
+}
 
+savelast_plot <- function(fpath=NULL, name=NULL, dev = "eps"){
+  base <- getwd()
+  fname <- ""
+  if(!is.null(name)){
+    fname <- paste("plot_", fname, name, sep="")
+  }else {
+    fname <- paste("plot_", fname, MHmakeRandomString(), sep="")
+  }
+  fname <- paste(fname, ".", dev, sep ="")
+  
+  if(!is.null(fpath)){
+    fname <- paste(fpath, "/" ,fname, sep="")
+  } else {
+    fname <- paste(base, "/../graphs/" ,fname, sep="")
+  }
+  ggsave(file=fname, device = dev)
+}
 
