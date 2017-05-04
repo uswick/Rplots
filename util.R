@@ -50,7 +50,7 @@ MHmakeRandomString <- function(n=1, lenght=12)
   return(randomString)
 }
 
-savelast_plot <- function(fpath=NULL, name=NULL, dev = "eps"){
+savelast_plot <- function(fpath=NULL, name=NULL, dev = "png"){
   base <- getwd()
   fname <- ""
   if(!is.null(name)){

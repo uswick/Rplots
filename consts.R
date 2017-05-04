@@ -47,6 +47,8 @@ MYPLOT_PROPS['geom_point', 'units']=3
 MYPLOT_PROPS['axis.text', 'active']=FALSE
 MYPLOT_PROPS['axis.text', 'face']="bold"
 MYPLOT_PROPS['axis.text', 'size']=4
+#MYPLOT_PROPS['axis.text', 'x']=element_text()
+
 
 MYPLOT_PROPS['axis.range.y', 'active']=FALSE
 MYPLOT_PROPS['axis.range.y.limit', 'a']=0
